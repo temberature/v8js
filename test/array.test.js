@@ -4,23 +4,23 @@ var expect = require('chai').expect;
 var customArray = require('../src/array');
 
 describe('Array', function() {
-  var a2 = generateArr(100);
+  var a2 = generateArr(10000000);
   var a1 = new customArray(a2);
   // console.log(a1, a2);
 
-  describe('#sort', function() {
-    profile(function () {
-      a1.sort();
-    }, function() {
-      a2.sort();
-    }, 'sort');
+  // describe('#sort', function() {
+  //   profile(function () {
+  //     a1.sort();
+  //   }, function() {
+  //     a2.sort();
+  //   }, 'sort');
 
-    it('array sort default small to big', function() {
-      var r1 = [].slice.call(a1.sort(), 0, a1.length);
-      var r2 = a2.sort();
-      expect(r1).to.eql(r2);
-    });
-  });
+  //   it('array sort default small to big', function() {
+  //     var r1 = [].slice.call(a1.sort(), 0, a1.length);
+  //     var r2 = a2.sort();
+  //     expect(r1).to.eql(r2);
+  //   });
+  // });
   describe('#indexOf', function() {
     profile(function () {
       a1.indexOf(500);
@@ -52,7 +52,7 @@ function generateArr(count) {
 }
 
 function profile(f1, f2, label) {
-  var times = 10;
+  var times = 100;
   console.time(label + '1');
   for (var i = 0; i < times; i++) {
     f1();
