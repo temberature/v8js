@@ -2,6 +2,7 @@ var describe = require('mocha').describe;
 var it = require('mocha').it;
 var expect = require('chai').expect;
 var customArray = require('../src/array');
+var profile = require('./utils').profile;
 
 describe('Array', function() {
   var a2 = generateArr(10000000);
@@ -51,17 +52,4 @@ function generateArr(count) {
   return arr;
 }
 
-function profile(f1, f2, label) {
-  var times = 100;
-  console.time(label + '1');
-  for (var i = 0; i < times; i++) {
-    f1();
-  }
-  console.timeEnd(label + '1');
 
-  console.time(label + '2');
-  for (var i = 0; i < times; i++) {
-    f2();
-  }
-  console.timeEnd(label + '2');
-}
