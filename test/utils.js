@@ -19,6 +19,16 @@ function profile(f1, f2, label) {
 function isFunction(v) {
   return Object.prototype.toString.call(v) === '[object Function]';
 }
+
+function generateArr(count) {
+  var arr = new Array(count);
+  for (var i = 0; i < count; i++) {
+    arr[i] = Math.floor(Math.random() * count * 2);
+  }
+  return arr;
+}
+
 module.exports = {
-  profile: profile
+  profile: profile,
+  generateArr: generateArr
 };
